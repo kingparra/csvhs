@@ -21,8 +21,7 @@ renderHtml ll =
     bodyTxt :: [String]
     bodyTxt = (map (td) (tail ll))
   in
-    traceShowId $
     table $
     thead $
     concat $
-    traceShowId headTxt ++ map tr (traceShowId bodyTxt)
+    headTxt ++ map tr bodyTxt
