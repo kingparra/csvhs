@@ -1,0 +1,18 @@
+---
+name: csvhs
+dependencies: base >= 4.7 && < 5
+executables:
+  csvhs-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options: [-threaded, -rtsopts, -with-rtsopts=-N]
+    dependencies: [csvhs, process]
+library:
+  source-dirs: src
+  dependencies: split
+tests:
+  csvhs-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options: [-threaded, -rtsopts, -with-rtsopts=-N]
+    dependencies: [csvhs, hspec]
