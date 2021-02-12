@@ -16,5 +16,13 @@ renderHtml ll =
     th h     =  "<th>" ++ h ++ "</th>"
     thead th =  "<thead>" ++ th ++ "</thead>"
     table t  =  "<table>" ++ t ++ "</table>"
+    headTxt :: [String]
+    headTxt = (map (th) (head ll))
+    bodyTxt :: [String]
+    bodyTxt = (map (td) (tail ll))
   in
-    table $ thead $ traceId $ concat $ map tr ( (map (th) (head ll)) ++ (map (td) (tail ll)))
+    traceShowId $
+    table $
+    thead $
+    concat $
+    traceShowId headTxt ++ map tr (traceShowId bodyTxt)
